@@ -8,7 +8,8 @@ function User({ user }) {
         alt={`${user.name.first} ${user.name.last}`}
         className={style.userAvatar}
       />
-      <h2>{`${user.name.first} ${user.name.last}`}</h2>
+      <h2>{`${user.name.first}`}</h2>
+      <h2>{`${user.name.last}`}</h2>
     </div>
   );
 }
