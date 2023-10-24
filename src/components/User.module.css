@@ -1,0 +1,13 @@
+.user {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 20px 40px 20px 40px;
+  margin-bottom: 16px;
+  box-shadow: 0px 4px 20px 0px #00000014;
+}
+
+.userAvatar {
+  width: 100px;
+  border-radius: 50px;
+}
