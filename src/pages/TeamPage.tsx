@@ -7,7 +7,7 @@ function TeamPage() {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <header className={styles.header}>
         <button onClick={handleLogout} className={styles.logoutButton}>
           Выйти
@@ -24,7 +24,7 @@ function TeamPage() {
       <section>
         <Partners />
       </section>
-    </>
+    </div>
   );
 }
 

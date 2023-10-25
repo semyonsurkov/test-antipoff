@@ -72,6 +72,6 @@ input {
 
 @media (max-width: 480px) {
   .form {
-    width: 400px;
+    width: 350px;
   }
 }
