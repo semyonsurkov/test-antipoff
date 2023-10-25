@@ -56,3 +56,20 @@ input {
   top: 10px;
   left: 10px;
 }
+
+/* ... (your existing styles) ... */
+
+.passwordWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.togglePasswordVisibility {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}

@@ -1,10 +1,19 @@
 import { useSelector } from 'react-redux';
 import style from '../components/UserDetail.module.css';
 import { Link } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
 
 const UserDetail = () => {
   const detailedUser = useSelector((state) => state.users.detailedUser);
+
+  const handleLogout = () => {
+    // Clear the token (assuming it's stored in state)
+    // You should replace this with your actual token management logic
+    // For example, using useContext or Redux
+    // setToken(null);
+
+    // Redirect the user back to the registration page
+    window.location.href = '/';
+  };
 
   if (!detailedUser) {
     return <div>No user selected</div>;
@@ -13,6 +22,9 @@ const UserDetail = () => {
   return (
     <div className={style.page}>
       <header className={style.header}>
+        <button onClick={handleLogout} className={style.logoutButton}>
+          Выйти
+        </button>
         <div className={style.navigation}>
           <Link to="/team" className={style.back}>
             Назад
