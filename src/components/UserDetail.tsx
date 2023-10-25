@@ -1,9 +1,12 @@
 import { useSelector } from 'react-redux';
 import style from '../components/UserDetail.module.css';
 import { Link } from 'react-router-dom';
+import { RootState } from '../store/store';
 
 const UserDetail = () => {
-  const detailedUser = useSelector((state) => state.users.detailedUser);
+  const detailedUser = useSelector(
+    (state: RootState) => state.users.detailedUser
+  );
 
   const handleLogout = () => {
     window.location.href = '/';

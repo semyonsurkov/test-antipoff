@@ -10,11 +10,12 @@ import style from '../components/Users.module.css';
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import User from './User';
 import { useNavigate } from 'react-router-dom';
+import { RootState } from '../store/store';
 
 const Users = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.users);
-  const isLoading = useSelector((state) => state.users.isLoading);
+  const users = useSelector((state: RootState) => state.users.users);
+  const isLoading = useSelector((state: RootState) => state.users.isLoading);
   const navigate = useNavigate();
 
   const [loadedUsers, setLoadedUsers] = useState(users);

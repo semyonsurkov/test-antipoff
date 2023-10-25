@@ -1,6 +1,18 @@
 import style from '../components/User.module.css';
 
-function User({ user }) {
+type UserProps = {
+  user: {
+    picture: {
+      thumbnail: string;
+    };
+    name: {
+      first: string;
+      last: string;
+    };
+  };
+};
+
+function User({ user }: UserProps) {
   return (
     <div className={style.user}>
       <img

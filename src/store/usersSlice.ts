@@ -1,10 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const usersSlice = createSlice({
+const usersSlice = createSlice({
   name: 'users',
   initialState: {
     users: [],
-    detailedUser: null,
+    detailedUser: {
+      picture: { medium: '' },
+      name: { first: '', last: '' },
+      phone: '',
+      email: '',
+    },
     isLoading: false,
     error: null,
   },
