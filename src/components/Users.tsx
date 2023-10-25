@@ -12,13 +12,26 @@ import User from './User';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../store/store';
 
+type UserType = {
+  login: {
+    uuid: string;
+  };
+  picture: {
+    thumbnail: string;
+  };
+  name: {
+    first: string;
+    last: string;
+  };
+};
+
 const Users = () => {
   const dispatch = useDispatch();
   const users = useSelector((state: RootState) => state.users.users);
   const isLoading = useSelector((state: RootState) => state.users.isLoading);
   const navigate = useNavigate();
 
-  const [loadedUsers, setLoadedUsers] = useState(users);
+  const [loadedUsers, setLoadedUsers] = useState<UserType[]>(users);
 
   useEffect(() => {
     if (loadedUsers.length === 0) {
@@ -41,7 +54,7 @@ const Users = () => {
     setVisibleUsers(visibleUsers + 8);
   };
 
-  const showDetailedUser = (user) => {
+  const showDetailedUser = (user: UserType) => {
     dispatch(setDetailedUser(user));
     navigate(`/user/${user.login.uuid}`);
   };
@@ -49,7 +62,7 @@ const Users = () => {
   return (
     <div className={style.container}>
       <div className={style.users}>
-        {users.slice(0, visibleUsers).map((user) => (
+        {loadedUsers.slice(0, visibleUsers).map((user) => (
           <div key={user.login.uuid} onClick={() => showDetailedUser(user)}>
             <User user={user} />
           </div>
