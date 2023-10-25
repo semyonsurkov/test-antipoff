@@ -9,8 +9,12 @@ const RegistrationForm: React.FC = () => {
     confirmPassword: '',
   });
 
-  const [error, setError] = useState('');
-  const [token, setToken] = useState<string | null>(null);
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,19 +26,31 @@ const RegistrationForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.password ||
-      formData.password !== formData.confirmPassword
-    ) {
-      setError('Пожалуйста, введите корректные данные.');
-      return;
+    const newErrors = {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    };
+
+    if (!formData.name) {
+      newErrors.name = 'Введите имя.';
+    }
+    if (!formData.email) {
+      newErrors.email = 'Введите электронную почту.';
+    }
+    if (!formData.password) {
+      newErrors.password = 'Введите пароль.';
+    }
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Пароли не совпадают.';
     }
 
-    const randomToken = Math.random().toString(36).substring(7);
+    setErrors(newErrors);
 
-    setToken(randomToken);
+    if (Object.values(newErrors).some((error) => error !== '')) {
+      return;
+    }
 
     setFormData({
       name: '',
@@ -60,6 +76,7 @@ const RegistrationForm: React.FC = () => {
               value={formData.name}
               onChange={handleInputChange}
             />
+            {errors.name && <div className={styles.error}>{errors.name}</div>}
 
             <label>Электронная почта</label>
             <input
@@ -69,6 +86,7 @@ const RegistrationForm: React.FC = () => {
               value={formData.email}
               onChange={handleInputChange}
             />
+            {errors.email && <div className={styles.error}>{errors.email}</div>}
 
             <label>Пароль</label>
             <input
@@ -78,6 +96,9 @@ const RegistrationForm: React.FC = () => {
               value={formData.password}
               onChange={handleInputChange}
             />
+            {errors.password && (
+              <div className={styles.error}>{errors.password}</div>
+            )}
 
             <label>Подтвердите пароль</label>
             <input
@@ -87,8 +108,9 @@ const RegistrationForm: React.FC = () => {
               value={formData.confirmPassword}
               onChange={handleInputChange}
             />
-
-            {error && <div className={styles.error}>{error}</div>}
+            {errors.confirmPassword && (
+              <div className={styles.error}>{errors.confirmPassword}</div>
+            )}
 
             <button type="submit" className={styles.button}>
               Зарегистрироваться

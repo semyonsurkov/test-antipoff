@@ -2,14 +2,7 @@ import Partners from '../components/Users';
 import styles from '../pages/TeamPage.module.css';
 
 function TeamPage() {
-  // Function to handle logout
   const handleLogout = () => {
-    // Clear the token (assuming it's stored in state)
-    // You should replace this with your actual token management logic
-    // For example, using useContext or Redux
-    // setToken(null);
-
-    // Redirect the user back to the registration page
     window.location.href = '/';
   };
 
@@ -31,7 +24,6 @@ function TeamPage() {
       <section>
         <Partners />
       </section>
-      {/* Log Out button */}
     </>
   );
 }
