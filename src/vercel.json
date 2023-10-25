@@ -1,7 +1,8 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/src/App.tsx"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

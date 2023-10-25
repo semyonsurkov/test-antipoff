@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
 import styles from '../components/RegistrationForm.module.css';
 
 const RegistrationForm: React.FC = () => {
+  const navigate = useNavigate(); // Используем useNavigate для навигации
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -59,7 +62,7 @@ const RegistrationForm: React.FC = () => {
       confirmPassword: '',
     });
 
-    window.location.href = '/team';
+    navigate('/team'); // Используем navigate для перенаправления
   };
 
   return (
