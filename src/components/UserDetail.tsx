@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import style from '../components/UserDetail.module.css';
 import { RootState } from '../store/store';
 
@@ -7,8 +8,10 @@ const UserDetail = () => {
     (state: RootState) => state.users.detailedUser
   );
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    window.location.href = '/team';
+    navigate('/team');
   };
 
   if (!detailedUser) {
