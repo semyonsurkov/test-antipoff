@@ -1,22 +1,35 @@
-.container {
+.usersContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 80%;
 }
 
 .users {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
+  gap: 30px;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin-top: 50px;
 }
 
+@media (max-width: 1440px) {
+  .users {
+    grid-template-columns: repeat(2, 3fr);
+  }
+}
+
 .button {
   background-color: white;
   border: 2px solid rgba(211, 206, 206, 0.589);
   border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .users {
+    grid-template-columns: repeat(1, 3fr);
+  }
 }

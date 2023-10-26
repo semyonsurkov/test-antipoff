@@ -14,16 +14,14 @@ function TeamPage() {
         </button>
         <div className={styles.info}>
           <h1 className={styles.h1}>Наша команда</h1>
-          <p>
+          <p className={styles.paragraph}>
             Это опытные специалисты, хорошо разбирающиеся во всех задачах,
             которые ложатся на их плечи, и умеющие находить выход из любых, даже
-            самых сложных ситуаций.{' '}
+            самых сложных ситуаций.
           </p>
         </div>
       </header>
-      <section>
-        <Partners />
-      </section>
+      <Partners />
     </div>
   );
 }

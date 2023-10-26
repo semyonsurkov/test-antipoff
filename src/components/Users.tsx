@@ -60,7 +60,7 @@ const Users = () => {
   };
 
   return (
-    <div className={style.container}>
+    <div className={style.usersContainer}>
       <div className={style.users}>
         {loadedUsers.slice(0, visibleUsers).map((user) => (
           <div key={user.login.uuid} onClick={() => showDetailedUser(user)}>

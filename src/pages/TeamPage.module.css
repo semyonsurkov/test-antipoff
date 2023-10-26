@@ -1,5 +1,8 @@
 .container {
-  width: 1440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
@@ -7,8 +10,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1440px;
-  height: 200px;
+  width: 100%;
+  height: 15rem;
   background-color: #512689;
   color: white;
   text-align: center;
@@ -18,6 +21,10 @@
 .h1 {
   font-size: 65px;
   margin: 0;
+}
+
+.paragraph {
+  width: 100%;
 }
 
 .logoutButton {
@@ -37,6 +44,9 @@
   padding: 15px;
 }
 
+@media (max-width: 1440px) {
+}
+
 @media (max-width: 1200px) {
 }
 
@@ -44,6 +54,10 @@
 }
 
 @media (max-width: 768px) {
+  .h1 {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 480px) {

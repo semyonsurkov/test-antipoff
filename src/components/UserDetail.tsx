@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import style from '../components/UserDetail.module.css';
-import { Link } from 'react-router-dom';
 import { RootState } from '../store/store';
 
 const UserDetail = () => {
@@ -9,7 +8,7 @@ const UserDetail = () => {
   );
 
   const handleLogout = () => {
-    window.location.href = '/';
+    window.location.href = '/team';
   };
 
   if (!detailedUser) {
@@ -23,9 +22,9 @@ const UserDetail = () => {
           Выйти
         </button>
         <div className={style.navigation}>
-          <Link to="/team" className={style.back}>
+          <button onClick={handleLogout} className={style.back}>
             Назад
-          </Link>
+          </button>
           <div className={style.userInfo}>
             <img
               src={detailedUser.picture.medium}
